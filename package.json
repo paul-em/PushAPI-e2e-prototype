@@ -1,0 +1,23 @@
+{
+  "name": "PushAPI-e2e-prototype",
+  "version": "0.0.0",
+  "description": "project to test current proposals of w3c",
+  "main": "components/AppServer/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paul-em/PushAPI-e2e-prototype.git"
+  },
+  "keywords": [
+    "pushAPI",
+    "w3c"
+  ],
+  "author": "Paul Em",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/paul-em/PushAPI-e2e-prototype/issues"
+  },
+  "homepage": "https://github.com/paul-em/PushAPI-e2e-prototype"
+}
