@@ -1,0 +1,39 @@
+html {
+  height: 100%;
+}
+
+body {
+  box-shadow: 0 0 50px #ddd inset;
+  -webkit-box-shadow: 0 0 50px #ddd inset;
+  font-family: OpenSans, Helvetica, Arial, sans;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+
+iframe {
+  width: 100%;
+  height: calc(100% - 60px);
+  display: block;
+  background-color: #ffffff;
+  background-image: linear-gradient(45deg, #e1e1e1 25%, transparent 25%, transparent 75%, #e1e1e1 75%, #e1e1e1),
+  linear-gradient(45deg, #e1e1e1 25%, transparent 25%, transparent 75%, #e1e1e1 75%, #e1e1e1);
+  background-size:60px 60px;
+  background-position:0 0, 30px 30px
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background-color: #F2F2F2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+header input {
+  width: 90%;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 14pt;
+  padding-left: 5px;
+}
