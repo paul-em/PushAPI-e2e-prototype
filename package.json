@@ -21,8 +21,6 @@
   },
   "homepage": "https://github.com/paul-em/PushAPI-e2e-prototype",
   "dependencies": {
-    "sse": "0.0.6",
-    "express": "~4.10.4"
   },
   "devDependencies": {
     "gulp-shell": "~0.2.11",

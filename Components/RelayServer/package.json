@@ -1,0 +1,16 @@
+{
+  "name": "RelayServer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "node-gcm": "~0.9.12",
+    "express": "~4.10.4",
+    "body-parser": "~1.10.0"
+  }
+}

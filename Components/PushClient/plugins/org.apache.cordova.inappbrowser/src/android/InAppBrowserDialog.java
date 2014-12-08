@@ -43,11 +43,9 @@ public class InAppBrowserDialog extends Dialog {
     }
 
     public void onBackPressed () {
-        if (this.inAppBrowser == null) {
-            this.dismiss();
+        if(this.inAppWebView.canGoBack()){
+            this.inAppWebView.goBack();
         } else {
-            // better to go through the in inAppBrowser
-            // because it does a clean up
             this.inAppBrowser.closeDialog();
         }
     }

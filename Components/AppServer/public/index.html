@@ -6,6 +6,7 @@
 </head>
 <body>
 <h2 id="status"></h2>
+<script src="bower_components/fetch/fetch.js"></script>
 <script>
     window.onload = function () {
         var $status = document.getElementById('status');
@@ -19,13 +20,23 @@
                                 $status.innerText = "registration complete! registrationId: " + pushRegistration.registrationId + " endpoint: " + pushRegistration.endpoint;
                                 console.log(pushRegistration.registrationId);
                                 console.log(pushRegistration.endpoint);
-                                // The push registration details needed by the application server to push
-                                // messages to the push service are now available, and can be sent to the
-                                // application server using, for example, an XMLHttpRequest.
+                                fetch('/', {
+                                    method: 'post',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        registrationId: pushRegistration.registrationId,
+                                        endpoint: pushRegistration.endpoint
+                                    })
+                                }).then(function(response) {
+                                    if(response.status === 200){
+                                        $status.innerText = "registration info sent to appServer";
+                                    } else {
+                                        $status.innerText = "error sending registration info to appServer";
+                                    }
+                                })
                             }, function (error) {
-                                // During development it often helps to log errors to the console. In a
-                                // production environment it might make sense to also report information
-                                // about errors back to the application server.
                                 $status.innerText = "error in registration: " + error;
                                 console.log(error);
                             }
@@ -34,7 +45,7 @@
             } else {
                 $status.innerText = 'no serviceWorkerShim found :(';
             }
-        }, 1000);
+        }, 100);
     }
 
 </script>
