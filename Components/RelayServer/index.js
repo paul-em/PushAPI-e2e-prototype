@@ -24,17 +24,10 @@ app.post('/', function(req, res){
         registrationIds = [registrationIds];
     }
 
-    /*var message = new gcm.Message({
-        collapseKey: 'demo',
-        data: 'test'
-    });*/
     console.log(registrationIds, data);
 
     var message = new gcm.Message({
-        data: {
-            title: data,
-            message: data
-        }
+        data: data
     });
     var sender = new gcm.Sender(androidAPIKey);
     sender.send(message, req.body.registrationIds, 4, function (err, result) {

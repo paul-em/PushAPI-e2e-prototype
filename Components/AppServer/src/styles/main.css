@@ -1,0 +1,22 @@
+html, body {
+    height: 100%;
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    background-color: #333;
+}
+body {
+    margin: 0;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+core-toolbar {
+    background-color: #526E9C;
+    color: #fff;
+}
+
+core-header-panel[mode="seamed"] /deep/ #mainPanel {
+    border-left: 1px solid rgba(155, 155, 155, 0.5);
+}

@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paul-em/PushAPI-e2e-prototype",
+  "authors": [
+    "Paul Em <paul3m@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fetch": "~0.3.2",
+    "polymer": "Polymer/polymer#~0.5.1",
+    "paper-elements": "Polymer/paper-elements#~0.5.1",
+    "core-elements": "Polymer/core-elements#~0.5.1",
+    "platform": "Polymer/platform#~0.4.2"
+  }
+}
