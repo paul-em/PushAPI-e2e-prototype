@@ -22,17 +22,31 @@
     <!-- endbuild-->
 </head>
 <body unresolved>
-    <core-scaffold>
-        <core-header-panel navigation flex mode="seamed">
-            <core-toolbar>Notification</core-toolbar>
+<core-scaffold>
+    <core-header-panel navigation flex mode="seamed">
+        <core-toolbar>Notification</core-toolbar>
 
-            <em-stored-list active-item="{{activeItem}}"></em-stored-list>
+        <em-stored-list></em-stored-list>
 
-        </core-header-panel>
-        <div tool>Send</div>
-        <em-sender active-item="{{activeItem}}">
-        </em-sender>
-    </core-scaffold>
+    </core-header-panel>
+    <div tool>Send</div>
+    <em-sender>
+    </em-sender>
+</core-scaffold>
+
+
 <script src="bower_components/fetch/fetch.js"></script>
+<script>
+    window.onload = function () {
+        var list = document.querySelector('em-stored-list');
+        var sender = document.querySelector('em-sender');
+        sender.addEventListener('send', function (e) {
+            list.addItem(e.detail);
+        });
+        list.addEventListener('select', function (e) {
+            sender.setData(e.detail);
+        });
+    }
+</script>
 </body>
 </html>

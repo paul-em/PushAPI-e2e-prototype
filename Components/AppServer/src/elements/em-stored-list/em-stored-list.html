@@ -3,16 +3,15 @@
 <link rel="import" href="../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../bower_components/core-localstorage/core-localstorage.html">
 
-<polymer-element name="em-stored-list" attributes="activeItem">
+<polymer-element name="em-stored-list">
     <template>
         <link rel="stylesheet" href="em-stored-list.css">
         <core-menu theme="core-light-theme">
-            <template repeat="{{ item in items }}">
-                <core-item icon="speaker-notes" label="{{item.Title}}" on-click="{{setActiveItem}}" horizontal center
+            <template repeat="{{ item in items.data }}">
+                <core-item icon="speaker-notes" label="{{item.title}}" on-click="{{setActiveItem}}" horizontal center
                            layout></core-item>
             </template>
         </core-menu>
-        <core-localstorage name="activeItem" value="{{activeItem}}"></core-localstorage>
         <core-localstorage name="items" value="{{items}}"></core-localstorage>
     </template>
     <script>
@@ -20,18 +19,16 @@
             'use strict';
 
             Polymer('em-stored-list', {
-                ready: function () {
-                    /* var items = localStorage.items;
-                     if (!items) {
-                     items = [{Title: 'Hello Push API', Message: 'It is workiiing!'}];
-                     } else {
-                     items = JSON.parse(items);
-                     }
-                     this.items = items; */
-                },
+                items: {data: []},
                 setActiveItem: function (e, detail, sender) {
-                    console.log('update active item')
-                    this.activeItem = sender.templateInstance.model.item;
+                    this.fire('select', {
+                        title: sender.templateInstance.model.item.title,
+                        message: sender.templateInstance.model.item.message
+                    });
+                },
+                addItem: function(data){
+                    this.items.data.unshift(data);
+                    this.shadowRoot.querySelector('core-localstorage[name="items"]').save();
                 }
             });
         })();
